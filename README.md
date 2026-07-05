@@ -81,7 +81,7 @@ This permits to log as administrator without knowing the password.
 <br>
 
 
-## `LAB 3` (UNION attack SQL injection)
+## `LAB 3.1` (UNION attack SQL injection)
 In this lab we add a new command, going to write a query with `UNION`.
 Using SQL injection with a **UNION** query we can determine how many colums a table (where we can find sensitive data about the customers or the owner of the site) has.
 
@@ -115,7 +115,33 @@ The laboratory is complete when we type ` ' UNION SELECT NULL, NULL, NULL--`, an
 <img width="1878" height="64" alt="image" src="https://github.com/user-attachments/assets/4b6c52a9-05b0-4008-af7a-0e96149c0d52" />
 <br>
 <br>
-<img width="1648" height="656" alt="image" src="https://github.com/user-attachments/assets/47d8637b-56e9-4c40-9bdd-243c8649af7c" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/47d8637b-56e9-4c40-9bdd-243c8649af7c" />
+
+
+<br>
+
+---
+
+<br>
+
+
+
+
+## `LAB 3.2` (UNION attack SQL injection)
+We can say this lab is the continuation of lab 3.1, this because in this moment we know how many columns the target table has but now we must know the data type of the columns.
+
+### RESOLUTION 
+We use the same payload we used before but this time we try to replace `NULL` one by one with a 'string value', if the site responds with a server error the target column doesn't contain text, if we see appearing under all the products a line with the string we have written, we have found the column which contains string value.
+
+We start with the first column and we write `' UNION SELECT 'aa', NULL, NULL--` and the site returns a server error.
+But when we try the second column,a line appears with 'aa' under all products, this means the column that contains a string value is the second.
+
+<br>
+<br>
+<img width="1776" height="60" alt="image" src="https://github.com/user-attachments/assets/683e4bb9-0730-49a6-9683-9017ea26f7e1" />
+<br>
+<br>
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/08b49a2e-251e-46b5-80fc-8ee0eb0d8dfb" />
 
 
 
