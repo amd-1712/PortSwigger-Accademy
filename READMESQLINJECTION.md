@@ -1,4 +1,4 @@
-# PortSwigger-Academy
+# PortSwigger-Academy (SQL INJECTION)
 My resolution for PortSwigger labs
 
 ## `LAB 1` (Simply SQL injection)
