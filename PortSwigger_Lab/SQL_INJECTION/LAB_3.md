@@ -1,4 +1,4 @@
-## `LAB 3.1` (UNION attack SQL injection)
+## `LAB 3.1` (UNION attack)
 In this lab we add a new command, going to write a query with `UNION`.
 Using SQL injection with a **UNION** query we can determine how many colums a table (where we can find sensitive data about the customers or the owner of the site) has.
 
@@ -44,7 +44,7 @@ The laboratory is complete when we type ` ' UNION SELECT NULL, NULL, NULL--`, an
 
 
 
-## `LAB 3.2` (UNION attack SQL injection)
+## `LAB 3.2` (UNION attack)
 We can say this lab is the continuation of lab 3.1, this because in this moment we know how many columns the target table has but now we must know the data type of the columns.
 
 ### RESOLUTION 
@@ -59,3 +59,49 @@ But when we try the second column,a line appears with 'aa' under all products, t
 <br>
 <br>
 <img width="800"  alt="image" src="https://github.com/user-attachments/assets/08b49a2e-251e-46b5-80fc-8ee0eb0d8dfb" />
+
+
+
+<br> 
+
+---
+
+<br>
+
+
+## LAB `LAB 3.3` (UNION attack)
+In this lab, we are using `UNION` but this time for get concrete data. 
+The scope of this lab is to find the passwords and the usernames, with UNION logic, of the standard users and the administrator of the site.
+
+> [!NOTE]
+> In this case we already know the database contains a table called `users` with the columns `username` and `password`, but in a realistic scenario,
+> before this step, you must do a Database Enumeration, seraching the name of the table, the database version etc.
+
+We finish when we found the password of the **administrator** and log as them.
+
+### RESOLUTION 
+The first thing we need to do is find out how many columns the host table ( the procedure is explained in `LAB 3.1` ).
+
+After we determine the host table has 2 columns we proceed to use **UNION** to grab the data from the users table.
+Since we know the host table has 2 columns we can append the columns of the table users typing in the **URL BAR** `'UNION SELECT username, password FROM users--` so the SQL query arrives at the server as follows:
+
+``` sql
+SELECT * FROM products WHERE category = 'Accessory' UNION SELECT username, password FROM users-- ' AND ...
+```
+<br>
+
+<img width="1850" height="62" alt="image" src="https://github.com/user-attachments/assets/11db84a7-b768-4721-8cbe-b0a5229da1a0" />
+
+<br>
+
+After we type this the site shows us the products and the columns , with the username and the password, we appended with SQL logic.
+
+<img width="2314" height="616" alt="image" src="https://github.com/user-attachments/assets/4d41cbf8-4484-4e73-8bd4-6a5cb35b9f4b" />
+
+We find the password and we log as the administrator.
+
+
+ 
+
+
+
