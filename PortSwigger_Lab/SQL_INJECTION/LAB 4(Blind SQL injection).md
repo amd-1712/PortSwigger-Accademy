@@ -147,3 +147,16 @@ Now we are ready we set on sniper attack and launch the request.
 Burp will try all the combinations and show 1 under the culumns Welcome back if it find it in the respond. 
 For find out all the letter we must change the first number on the **SUBSTRING OPERATOR**.
 
+<br> 
+
+---
+
+<br>
+
+
+## REASUME OF PASSAGES 
+- Verify `Vulnerabilities`
+- Verify the `users' table`
+- Verify the existence of `administrator utent`
+- Find the `password lenght`
+- Find the `password`
